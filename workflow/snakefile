@@ -19,7 +19,7 @@ rule bam_report2:
   output:
     O="results/{id}_b2.txt",
   container:
-    singularity_java
+    singularity_samtools
   shell:
     "samtools stats {input.I} > {output.O}"
       
