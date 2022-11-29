@@ -13,9 +13,9 @@ rule all:
   output:
   shell:
     """
-        date
-        ls -l resources/ > results/summary.txt
-        date
+        date > results/summary.txt
+        ls -l resources/ >> results/summary.txt
+        date >> results/summary.txt
     """
 
 rule bam_report2:
