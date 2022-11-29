@@ -1,0 +1,25 @@
+BAMs, = glob_wildcards("resources/{id}.bam") # Bam files to iterate across
+VCFs, = glob_wildcards("resources/{id}.vcf.gz") # VCF files to iterate across
+
+rule all:
+# a pseudo-rule to collect the last rule's target files
+  input: expand("results/{id}.txt", id=BAMS), expand("results/{id}.txt", id=VCFs)
+  output:
+  shell:
+    'echo "Reports finished!"'
+      
+rule vcf_report:
+  input:
+    I="resources/{id}.vcf.gz"
+  output:
+    O="results/{id}.txt",
+  shell:
+    "scripts/file_report {input.I} > {output.O}"
+
+rule bam_report:
+  input:
+    I="resources/{id}.bam"
+  output:
+    O="results/{id}.txt",
+  shell:
+    "scripts/file_report {input.I} > {output.O}"
