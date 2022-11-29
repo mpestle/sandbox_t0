@@ -4,10 +4,11 @@
     echo "Usage: $0 <file_name>"
     exit
 }
+f="$1"
 
-[[ -f $f ]] || {
+[[ -f "$f" ]] || {
     echo "No such file: $f"
     exit 1
 }
 
-ls -l $f
+ls -l "$f"
