@@ -23,7 +23,7 @@ rule bam_report2:
   container:
     singularity_samtools
   shell:
-    "samtools stats {input.I} > {output.O}"
+    "samtools idxstats {input.I} > {output.O}"
       
 rule vcf_report:
   input:
