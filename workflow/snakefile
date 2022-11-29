@@ -6,7 +6,7 @@ rule all:
   input: expand("results/{id}.txt", id=BAMs), expand("results/{id}.txt", id=VCFs)
   output:
   shell:
-    'echo "Reports finished!"'
+    'ls -l resources/ > results/summary.txt'
       
 rule vcf_report:
   input:
