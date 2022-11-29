@@ -1,0 +1,2 @@
+singularity_samtools:  "/shared/singularities/samtools-1.16.sif"
+singularity_java:      "/shared/singularities/openjdk1.8.simg"

@@ -1,3 +1,8 @@
+configfile: "config/inputs.yaml"
+
+singularity_samtools = config["singularity_samtools"]
+singularity_java     = config["singularity_java"]
+
 BAMs, = glob_wildcards("resources/{id}.bam") # Bam files to iterate across
 VCFs, = glob_wildcards("resources/{id}.vcf.gz") # VCF files to iterate across
 
@@ -7,6 +12,16 @@ rule all:
   output:
   shell:
     'ls -l resources/ > results/summary.txt'
+
+rule bam_report2:
+  input:
+    I="resources/{id}.bam"
+  output:
+    O="results/{id}_b2.txt",
+  container:
+    singularity_java
+  shell:
+    "samtools stats {input.I} > {output.O}"
       
 rule vcf_report:
   input:
