@@ -3,7 +3,7 @@ VCFs, = glob_wildcards("resources/{id}.vcf.gz") # VCF files to iterate across
 
 rule all:
 # a pseudo-rule to collect the last rule's target files
-  input: expand("results/{id}.txt", id=BAMS), expand("results/{id}.txt", id=VCFs)
+  input: expand("results/{id}.txt", id=BAMs), expand("results/{id}.txt", id=VCFs)
   output:
   shell:
     'echo "Reports finished!"'
