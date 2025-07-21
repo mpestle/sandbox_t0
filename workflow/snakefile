@@ -16,9 +16,6 @@ rule all:
         date > results/summary.txt
         ls -l resources/ >> results/summary.txt
         date >> results/summary.txt
-        echo #############################################
-        cat results/summary.txt
-        echo #############################################
     """
 
 rule bam_report2:
