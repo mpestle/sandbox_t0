@@ -1,5 +1,7 @@
 # BAM and VCF File Region Naming Conventions
 
+(from a conversation with an AI coding agent)
+
 ## Common Naming Conventions
 
 ### Standard chromosome naming:
